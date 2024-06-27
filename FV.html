@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Police Officer Eligibility Checker</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+background-image: url("wa1.svg");
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+font-family: "Noto Sans", sans-serif;
+}
+
+.he a{
+font-family: "Jacquard 12", system-ui;
+font-weight: 400;
+font-style: normal;
+color: #eb3b10;
+margin-left: 390px;
+text-decoration: none;
+font-size: 30px;
+}
+
+a:hover {
+color: aliceblue;
+font-size: 33px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+input[type=number] {
+-moz-appearance: textfield;
+}
+
+input[type=text] {
+width: 25%;
+padding: 12px 20px;
+margin-left: 450px;
+margin-top: 15px;
+border: 1px solid #ccc;
+border-radius: 10px;
+box-sizing: border-box;
+}
+
+input[type=number] {
+width: 25%;
+padding: 12px 20px;
+margin-left: 450px;
+margin-top: 15px;
+border: 1px solid #ccc;
+border-radius: 10px;
+box-sizing: border-box;
+}
+
+label {
+color: white;
+margin-left: 450px;
+}
+
+.ab {
+margin-left: 450px;
+margin-top: 20px;
+}
+
+.ab input[type=button]{
+width: 100px;
+font-size: 20px;
+padding: 10px;
+border: none;
+color: #00146d;
+background: #00ff40b3;
+border-radius:23px;
+text-decoration:none;
+display:inline-block;
+margin-right: 20px;
+}
+
+.ab input[type=button]:hover {
+background: #136327b3;
+color: white;
+text-decoration: none;
+}
+
+#op {
+margin-left: 450px;
+margin-top: 20px;
+font-size: 25px;
+color: yellow;
+}
+
+#i1{
+margin-left: 300px;
+width: 50px;
+height: 50px;
+position: absolute;
+}
+
+#i1:hover{
+width: 70px;
+height: 70px;
+}
+
+#i2{
+margin-left: 900px;
+width: 50px;
+height: 50px;
+position: absolute;
+}
+
+#i2:hover{
+width: 70px;
+height: 70px;
+}
+
+.ab a{
+color: aliceblue;
+font-size: 20px;
+text-decoration: none;
+margin-right: 20px;
+}
+
+.ab a:hover{
+color: rgba(238, 116, 116, 0.842);
+text-decoration: none;
+}
+</style>
+    </head>
+    <body>
+
+        <div>
+            <a href="FV.html"><img src="1.png" id="i1"></a>
+        </div>
+        <div>
+            <a href="FV.html"><img src="2.png" id="i2"></a>
+        </div>
+        <div class="he">
+            <a href="FV.html">Police Officer Eligibility Checker</a>
+
+        </div>
+        <div>
+            <form id="fo">
+                <br><label for="name">Name </label><br>
+                <input type="text" id="a" name="name"
+                    placeholder="Enter your Name"><br><br>
+
+                <label for="age">Age </label><br>
+                <input type="number" id="b" min="0" max="150" name="age"
+                    placeholder="Enter your Age"><br><br>
+
+                <label for="height">Height </label><br>
+                <input type="number" id="height" name="height"
+                    placeholder="Enter your Height (in cm)"><br><br>
+
+                <label for="weight">Weight </label><br>
+                <input type="number" id="weight" name="weight"
+                    placeholder="Enter your Weight (in kg)"><br><br>
+
+                <label for="longjump">Long Jump</label><br>
+                <input type="number" id="e" name="lj"
+                    placeholder="Enter your Score (1 to 5)"><br><br>
+
+                <label for="highjump">High Jump</label><br>
+                <input type="number" id="f" name="hj"
+                    placeholder="Enter your Score (1 to 5)"><br><br>
+
+                <label for="running">Running</label><br>
+                <input type="number" id="g" name="run"
+                    placeholder="Enter your Score (1 to 5)"><br><br>
+
+                <label for="climbing">Rope Climbing</label><br>
+                <input type="number" id="h" name="climb"
+                    placeholder="Enter your Score (1 to 5)"><br><br>
+
+                <div class="ab">
+                    <a href="#" onclick="refreshPage()">Refresh Page</a>
+                    <input type="button" value="Result" onclick="res()">
+                </div>
+            </form>
+        </div>
+
+        <div id="op"></div>
+
+        <script>
+function refreshPage() {
+location.reload();
+}
+
+function bmi() {
+var height = parseFloat(document.getElementById("height").value);
+var weight = parseFloat(document.getElementById("weight").value);
+var result = weight/((height/100)**2);
+return result;
+}
+
+function res() {
+var name = document.getElementById('a').value;
+var age = parseInt(document.getElementById('b').value);
+var bmires = bmi();
+var lj = parseInt(document.getElementById('e').value);
+var hj = parseInt(document.getElementById('f').value);
+var run = parseInt(document.getElementById('g').value);
+var climb = parseInt(document.getElementById('h').value);
+if (age >= 18 && lj >= 3 && hj >= 3 && run >= 3 && climb >= 3 && bmires >= 18.5 && bmires <= 24.9) 
+{
+document.getElementById('op').innerHTML = " You are Fit";
+} 
+else 
+{
+document.getElementById('op').innerHTML = "You are Unfit<br>Better Luck Next Time :)";
+}
+}
+</script>
+</body>
+</html>
